@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+html { scroll-behavior: smooth; }
+body { @apply bg-ink text-white font-sans antialiased; }
+::selection { background: #C9A45C; color: #080808; }
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-5 md:px-10; }
+  .eyebrow { @apply text-[11px] uppercase tracking-wider2 text-gold; }
+  .h-display { @apply font-serif font-medium leading-[1.05] tracking-tight; }
+  .btn { @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-[12px] font-semibold uppercase tracking-[0.18em] transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-gold { @apply bg-gold text-ink hover:bg-champagne; }
+  .btn-line { @apply border border-gold/60 text-champagne hover:bg-gold hover:text-ink; }
+  .card { @apply bg-card border border-white/5; }
+  .input { @apply w-full bg-coal border border-white/10 px-4 py-3 text-sm text-white placeholder:text-mute/60 focus:border-gold focus:outline-none; }
+  .label { @apply mb-1.5 block text-[11px] uppercase tracking-[0.16em] text-mute; }
+  .gold-line { height: 1px; background: linear-gradient(90deg, transparent, #C9A45C, transparent); }
+  .metal-text { background: linear-gradient(110deg, #C9A45C 20%, #F5E7BE 45%, #C9A45C 70%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+
+/* Mobile polish */
+@media (max-width: 767px) {
+  .input { font-size: 16px; } /* prevents iOS zoom on focus */
+  .btn { min-height: 48px; }
+  .h-display { overflow-wrap: break-word; }
+}
